@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.samuraitravel.entity.User;
 
+@Component
 public class SignupEventPublisher {
     private final ApplicationEventPublisher applicationEventPublisher;
 
