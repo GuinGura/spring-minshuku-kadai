@@ -71,7 +71,7 @@ public class AdminHouseController {
         }
 
         houseService.create(houseRegisterForm);
-        redirectAttributes.addFlashAttribute("successMassage","民宿を登録しました。");
+        redirectAttributes.addFlashAttribute("successMessage","民宿を登録しました。");
         return "redirect:/admin/houses";
     }
 
