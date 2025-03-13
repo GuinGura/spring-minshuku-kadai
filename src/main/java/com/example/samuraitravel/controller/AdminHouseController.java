@@ -71,11 +71,11 @@ public class AdminHouseController {
         }
 
         houseService.create(houseRegisterForm);
-        redirectAttributes.addAttribute("successMassage","民宿を登録しました。");
+        redirectAttributes.addFlashAttribute("successMassage","民宿を登録しました。");
         return "redirect:/admin/houses";
     }
 
-    @GetMapping("{id}/edit")
+    @GetMapping("/{id}/edit")
     public String edit(@PathVariable(name = "id") Integer id, Model model) {
         House house = houseRepository.getReferenceById(id);
         String imageName = house.getImageName();
@@ -90,7 +90,7 @@ public class AdminHouseController {
     @PostMapping("/{id}/update")
     public String update(@ModelAttribute @Validated HouseEditForm houseEditForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "admin/house/edit";
+            return "admin/houses/edit";
         }
 
         houseService.update(houseEditForm);

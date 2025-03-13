@@ -46,7 +46,7 @@ public class UserService {
         User user = userRepository.getReferenceById(userEditForm.getId());
 
         user.setName(userEditForm.getName());
-        user.setFurigana((userEditForm.getFurigana()));
+        user.setFurigana(userEditForm.getFurigana());
         user.setPostalCode(userEditForm.getPostalCode());
         user.setAddress(userEditForm.getAddress());
         user.setPhoneNumber(userEditForm.getPhoneNumber());
@@ -67,6 +67,7 @@ public class UserService {
     }
 
     //ユーザーを有効にする
+    @Transactional
     public void enableUser(User user) {
         user.setEnabled(true);
         userRepository.save(user);
